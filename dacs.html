@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eLeorn - Đào tạo và cải thiện kết quả học tập</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="logg-container">
+  <div class="wrapper">
+    <div class="card-switch">
+      <input type="radio" id="login" name="card-switch" class="switch" checked>
+      <input type="radio" id="register" name="card-switch" class="switch">
+      <div class="flip-card">
+        <div class="flip-card__inner">
+          <!-- Phần đăng nhập -->
+          <div class="flip-card__front">
+            <div class="title">Đăng nhập</div>
+            <form class="flip-card__form" id="loginForm" action="">
+              <input class="flip-card__input" name="email" placeholder="Email" type="email" value="example@example.com">
+              <input class="flip-card__input" name="password" placeholder="Mật khẩu" type="password" value="password123">
+              <button class="flip-card__btn">Let's go!</button>
+            </form>
+          </div>
+          <!-- Phần đăng ký -->
+          <div class="flip-card__back">
+            <div class="title">Đăng ký</div>
+            <form class="flip-card__form" id="registerForm" action="">
+              <input class="flip-card__input" name="name" placeholder="Họ và tên" type="text">
+              <input class="flip-card__input" name="email" placeholder="Email" type="email">
+              <input class="flip-card__input" name="password" placeholder="Mật khẩu" type="password">
+              <input class="flip-card__input" name="confirm-password" placeholder="Xác nhận mật khẩu" type="password">
+              <button class="flip-card__btn">Đăng ký</button>
+            </form>
+          </div>
+        </div>
+        <label for="register" class="card-side">Đăng ký</label>
+        <label for="login" class="card-side">Đăng nhập</label>
+        <span class="slider"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var registerRadio = document.getElementById('register');
+    var loginForm = document.getElementById('loginForm');
+    var registerForm = document.getElementById('registerForm');
+
+    registerRadio.addEventListener('change', function() {
+        if (this.checked) {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        }
+    });
+
+    var loginRadio = document.getElementById('login');
+    loginRadio.addEventListener('change', function() {
+        if (this.checked) {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        }
+    });
+
+    // Form đăng nhập
+    var loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var email = document.querySelector('#loginForm input[name="email"]').value;
+        var password = document.querySelector('#loginForm input[name="password"]').value;
+
+        // Xác thực đăng nhập (có thể thêm kiểm tra với dữ liệu trong Local Storage)
+        if (email === 'example@example.com' && password === 'password123') {
+            window.location.href = 'trangchu.html';
+        } else {
+            alert('Đăng nhập không thành công. Vui lòng kiểm tra lại email và password.');
+        }
+    });
+
+    // Form đăng ký
+    var registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var name = document.querySelector('#registerForm input[name="name"]').value;
+        var email = document.querySelector('#registerForm input[name="email"]').value;
+        var password = document.querySelector('#registerForm input[name="password"]').value;
+        var confirmPassword = document.querySelector('#registerForm input[name="confirm-password"]').value;
+
+        // Kiểm tra xác nhận mật khẩu
+        if (password !== confirmPassword) {
+            alert('Mật khẩu và xác nhận mật khẩu không khớp!');
+            return;
+        }
+
+        // Tạo object chứa thông tin tài khoản
+        var user = {
+            name: name,
+            email: email,
+            password: password
+        };
+
+        // Lưu thông tin tài khoản vào Local Storage
+        localStorage.setItem('user', JSON.stringify(user));
+
+        // Chuyển hướng đến trang chính sau khi đăng ký thành công
+        window.location.href = 'trangchu.html';
+    });
+});
+
+</script>
+
+</body>
+</html>

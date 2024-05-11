@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eLeorn - Đào tạo và cải thiện kết quả học tập</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h2 {
+      margin-bottom: 10px;
+    }
+    .choices {
+      margin-left: 20px;
+    }
+    .choices label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .result {
+      margin-top: 20px;
+    }
+    .elapsed-time {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="trangchu.html">
+        <div class="logo">
+          <img src="https://cdn-proxy.hoolacdn.com/vne-hoola-cdn-01/sgp1/lib/image/logo-elearn-1_eFJpaGHisdKKKup6m-original.jpg" alt="khoahoc.html">
+        </div>
+      </a>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khoahoc.html">Khóa học</a></li>
+          <li><a href="thitructuyen.html">Thi trực tuyến</a></li>
+          <li><a href="tiendo.html">Tiến độ</a></li>
+          <li><a href="kickhoat.html">Kích hoạt</a></li>
+          <li><a href="dacs.html">Đăng xuất</a></li>
+
+        </ul>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">        <button type="submit">Tìm kiếm</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <button class="btn btn-start-timer">Tính giờ</button>
+        <div class="timer-display">00:00</div>
+      </div>
+    </section>
+    
+    <h1>Bài thi tiếng Anh</h1>
+    
+    <!-- Câu hỏi 1 -->
+    <div class="question">
+      <h2>Câu 1: Chọn đáp án đúng</h2>
+      <p>What is the capital of France?</p>
+      <div class="choices">
+        <label><input type="radio" name="question1" value="a">a) Paris</label>
+        <label><input type="radio" name="question1" value="b">b) London</label>
+        <label><input type="radio" name="question1" value="c">c) Berlin</label>
+        <label><input type="radio" name="question1" value="d">d) Madrid</label>
+      </div>
+    </div>
+
+    <!-- Câu hỏi 2 -->
+    <div class="question">
+      <h2>Câu 2: Điền từ thích hợp vào chỗ trống</h2>
+      <p>My brother ________ to school by bus every day.</p>
+      <div class="choices">
+        <label><input type="text" name="question2"></label>
+      </div>
+    </div>
+
+    <!-- Câu hỏi 3 -->
+    <div class="question">
+      <h2>Câu 3: Sắp xếp các từ thành câu hoàn chỉnh</h2>
+      <p>words: My / is / name / John.</p>
+      <div class="choices">
+        <label><input type="text" name="question3"></label>
+      </div>
+    </div>
+
+    <!-- Nút gửi -->
+    <button class="btn-submit">Gửi</button>
+
+    <!-- Kết quả -->
+    <section class="result">
+      <div class="elapsed-time"></div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Về chúng tôi</h2>
+    <p>eLeorn là một nền tảng giáo dục trực tuyến được phát triển bởi đội ngũ chuyên gia giàu kinh nghiệm.</br>
+    Mục tiêu của chúng tôi là cung cấp các khóa học chất lượng cao, giúp học viên học tập hiệu quả và đạt được mục tiêu.</p>
+    <a href="#" class="btn">Tìm hiểu thêm</a>
+    <h2>Liên hệ</h2>
+    <p>Bạn có câu hỏi hoặc cần hỗ trợ?<br>
+    Vui lòng liên hệ với chúng tôi qua email hoặc điện thoại.</p>
+    <ul>
+      <li><a href="mailto:support@eleorn.com">support@eleorn.com</a></li>
+      <li><a href="tel:+84987654321">+84 987 654 321</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    window.onload = function() {
+      var btnStartTimer = document.querySelector('.btn-start-timer');
+      var timerDisplay = document.querySelector('.timer-display');
+      var btnSubmit = document.querySelector('.btn-submit');
+      var elapsedTimeDisplay = document.querySelector('.elapsed-time');
+
+      var startTime;
+      var timerInterval;
+      var score = 0;
+
+      function startTimer() {
+        startTime = new Date().getTime();
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      function updateTimer() {
+        var currentTime = new Date().getTime();
+        var elapsedTime = currentTime - startTime;
+
+        var seconds = Math.floor(elapsedTime / 1000);
+        var minutes = Math.floor(seconds / 60);
+        seconds = seconds % 60;
+
+        timerDisplay.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+      }
+
+      btnStartTimer.addEventListener('click', function() {
+        startTimer();
+      });
+
+      btnSubmit.addEventListener('click', function() {
+        clearInterval(timerInterval);
+        elapsedTimeDisplay.textContent = 'Thời gian đã trôi qua: ' + timerDisplay.textContent;
+
+        var answer1 = document.querySelector('input[name="question1"]:checked');
+        if (answer1 !== null && answer1.value === 'a') {
+          score += 1; 
+        }
+
+        var answer2 = document.querySelector('input[name="question2"]').value;
+        if (answer2.toLowerCase() === 'goes') {
+          score += 1;
+        }
+
+        var answer3 = document.querySelector('input[name="question3"]').value;
+        if (answer3.toLowerCase() === 'my name is john') {
+          score += 1;
+        }
+
+        elapsedTimeDisplay.textContent += ', Bạn đã làm đúng: ' + score ;
+      });
+    };
+  </script>
+</body>
+</html>

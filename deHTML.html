@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eLeorn - Đào tạo và cải thiện kết quả học tập</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h2 {
+      margin-bottom: 10px;
+    }
+    .choices {
+      margin-left: 20px;
+    }
+    .choices label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .result {
+      margin-top: 20px;
+    }
+    .elapsed-time {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="trangchu.html">
+        <div class="logo">
+          <img src="https://cdn-proxy.hoolacdn.com/vne-hoola-cdn-01/sgp1/lib/image/logo-elearn-1_eFJpaGHisdKKKup6m-original.jpg" alt="khoahoc.html">
+        </div>
+      </a>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khoahoc.html">Khóa học</a></li>
+          <li><a href="thitructuyen.html">Thi trực tuyến</a></li>
+          <li><a href="tiendo.html">Tiến độ</a></li>
+          <li><a href="kickhoat.html">Kích hoạt</a></li>
+          <li><a href="dacs.html">Đăng xuất</a></li>
+
+        </ul>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">        
+        <button type="submit">Tìm kiếm</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <button class="btn btn-start-timer">Tính giờ</button>
+        <div class="timer-display">00:00</div>
+      </div>
+    </section>
+    
+    <h1>Bài thi thiết kế web</h1>
+
+    <div class="question">
+      <h2>Câu 1: Thể hiện website giống hình dưới, thể hiện các thẻ Header, u, b, center</h2>
+      <img src="https://hiepsiit.com/public/uploads/images/Baitap/html/bai1.png" alt="Logo">
+      <div class="choices">
+        <label><input type="text" name="question2"></label>
+      </div>
+    </div>
+
+    
+    <div class="question">
+      <h2>Câu 2: Tạo trang web có nội dung là Bài tập sử dụng các tag cơ bản, có tô màu cho các đoạn văn bản</h2>
+        <img src="https://hiepsiit.com/public/uploads/images/Baitap/html/bai2.png" alt="Logo">      <div class="choices">
+        <label><input type="text" name="question3"></label>
+      </div>
+    </div>
+
+    <!-- Nút gửi -->
+    <button class="btn-submit">Gửi</button>
+
+    <!-- Kết quả -->
+    <section class="result">
+      <div class="elapsed-time"></div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Về chúng tôi</h2>
+    <p>eLeorn là một nền tảng giáo dục trực tuyến được phát triển bởi đội ngũ chuyên gia giàu kinh nghiệm.</br>
+    Mục tiêu của chúng tôi là cung cấp các khóa học chất lượng cao, giúp học viên học tập hiệu quả và đạt được mục tiêu.</p>
+    <a href="#" class="btn">Tìm hiểu thêm</a>
+    <h2>Liên hệ</h2>
+    <p>Bạn có câu hỏi hoặc cần hỗ trợ?<br>
+    Vui lòng liên hệ với chúng tôi qua email hoặc điện thoại.</p>
+    <ul>
+      <li><a href="mailto:support@eleorn.com">support@eleorn.com</a></li>
+      <li><a href="tel:+84987654321">+84 987 654 321</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    window.onload = function() {
+      var btnStartTimer = document.querySelector('.btn-start-timer');
+      var timerDisplay = document.querySelector('.timer-display');
+      var btnSubmit = document.querySelector('.btn-submit');
+      var elapsedTimeDisplay = document.querySelector('.elapsed-time');
+
+      var startTime;
+      var timerInterval;
+
+      function startTimer() {
+        startTime = new Date().getTime();
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      function updateTimer() {
+        var currentTime = new Date().getTime();
+        var elapsedTime = currentTime - startTime;
+
+        var seconds = Math.floor(elapsedTime / 1000);
+        var minutes = Math.floor(seconds / 60);
+        seconds = seconds % 60;
+
+        timerDisplay.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+      }
+
+      btnStartTimer.addEventListener('click', function() {
+        startTimer();
+      });
+
+      btnSubmit.addEventListener('click', function() {
+        clearInterval(timerInterval);
+        elapsedTimeDisplay.textContent = 'Thời gian đã trôi qua: ' + timerDisplay.textContent;
+      });
+    };
+  </script>
+</body>
+</html>

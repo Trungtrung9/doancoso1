@@ -1,0 +1,498 @@
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+header,
+footer {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  /* Adding hover effect */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+nav ul li a:hover {
+  color: #007bff; /* Change to desired hover color */
+}
+
+.search-box {
+  float: none;
+}
+
+.search-box input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.banner {
+  text-align: center;
+  padding: 50px 0;
+  background: #f4f4f4;
+}
+
+.banner h1 {
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  background: #007bff;
+  color: #fff;
+}
+.courses  {
+  margin-bottom: 50px;
+}
+.courses .container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.col-md-4 {
+  flex: 0 0 auto;
+  width: 37.33%;
+  margin-bottom: 2px; /* Thêm margin dưới để tạo khoảng cách giữa các ô khóa học */
+  padding: 2 2px; /* Thêm padding để tạo khoảng cách giữa các cột */
+}
+
+
+/* Tăng kích thước và canh giữa các khóa học */
+.course-card {
+  text-align: center;
+  padding: 3px;
+  border-radius: 20px;
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.course-card img {
+  width: 100%; 
+  height: auto;
+
+}
+
+
+.course-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.course-card .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  background: #007bff;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.course-card .btn:hover {
+  background: #0056b3;
+}
+
+.course-card p {
+  margin-bottom: 1px;
+}
+
+.instructors {
+  padding: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.instructors h2 {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 25%;
+  padding: 0 15px; /* Thêm padding để tạo khoảng cách giữa các cột */
+}
+
+.instructor-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.instructor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.instructors-row {
+  display: flex;
+  justify-content: space-between; /* Căn các hình ảnh giảng viên ở hai đầu */
+  margin-top: 20px; /* Thêm khoảng cách giữa hàng các hình ảnh */
+}
+
+.instructor-card {
+  flex: 0 0 auto;
+  width: 60%; /* Điều chỉnh chiều rộng của mỗi hình ảnh giảng viên */
+  margin-bottom: 20px; /* Thêm khoảng cách giữa các hình ảnh giảng viên */
+}
+
+.instructor-card img {
+  width: 100%; /* Thay đổi kích thước hình ảnh */
+  height: auto;
+  border-radius: 10px; /* Bo tròn góc */
+}
+
+.instructor-card img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.instructor-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.instructor-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+
+  .search-box {
+      float: none;
+      margin-top: 20px;
+  }
+
+  .banner h1 {
+      font-size: 24px;
+  }
+
+  .btn {
+      display: block;
+      margin: 0 auto;
+  }
+
+  .col-md-4 {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+}
+
+.logo,
+nav {
+  display: inline-block;
+  vertical-align: middle; /* Đảm bảo chúng nằm trên cùng một dòng và căn giữa theo chiều dọc */
+}
+
+
+.logo img {
+  width: 15%;
+  height: auto;
+}
+.feedback {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.feedback .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedback h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feedback textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical; 
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+
+.feedback .btn-submit {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  
+}
+/* CSS */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.table-container {
+  display: flex;
+
+}
+.save-button {
+  margin-top: 20px;
+}
+
+.completed-items {
+  margin-top: 20px;
+}
+
+#completedItems {
+  font-size: 1.2rem;
+  color: #007bff; /* Màu sắc của văn bản hoàn thành */
+}
+
+/* Tùy chỉnh CSS cho bảng tiến độ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+td {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc; /* Đường kẻ giữa các hàng */
+}
+
+/* Tùy chỉnh CSS cho label của checkbox */
+label {
+  margin-left: 10px; /* Khoảng cách giữa checkbox và văn bản */
+}
+
+/* Tùy chỉnh CSS cho nút lưu */
+#saveButton {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#saveButton:hover {
+  background-color: #0056b3; 
+}
+.category-nav {
+  background-color: #f2f2f2;
+  padding: 10px 0;
+}
+
+.category-nav ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.category-nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.category-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.category-nav ul li a:hover {
+  color: #007bff;
+}
+.space{
+  margin-bottom: 5px;
+}
+
+
+.h3{
+  margin-bottom: 5px;
+}
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  animation-name: inherit;
+  animation-duration: 1.5s;
+  height: 300px; /* Thay đổi chiều cao tại đây */
+}
+.logg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 600px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flip-card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card__side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card__front {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flip-card__input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.flip-card__btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.flip-card__btn:hover {
+  background-color: #0056b3;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 10px;

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eLeorn - Đào tạo và cải thiện kết quả học tập</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const saveButton = document.getElementById('saveButton');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const completedItems = document.getElementById('completedItems');
+  
+  saveButton.addEventListener('click', function() {
+    let completedCount = 0;
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        completedCount++;
+      }
+    });
+    completedItems.textContent = completedCount + ' mục đã hoàn thành';
+  });
+});
+</script>
+</head>
+<body>
+  <header>
+        <a href="trangchu.html">
+      <div class="logo">
+        <img src="https://cdn-proxy.hoolacdn.com/vne-hoola-cdn-01/sgp1/lib/image/logo-elearn-1_eFJpaGHisdKKKup6m-original.jpg" alt="khoahoc.html">
+      </div>
+    </a>
+      <div class="container">
+      <nav>
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khoahoc.html">Khóa học</a></li>
+          <li><a href="thitructuyen.html">Thi trực tuyến</a></li>
+          <li><a href="tiendo.html">Tiến độ</a></li>
+          <li><a href="kickhoat.html">Kích hoạt</a></li>
+          <li><a href="dacs.html">Đăng xuất</a></li>
+
+        </ul>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm...">        <button type="submit">Tìm kiếm</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="no-results" style="display: none;">Không tìm thấy kết quả.</div>
+
+    <h2>Chọn các mục đã hoàn thành:</h2>
+    <h3>Lưu lại và làm mới với mỗi đề thi cùng bài giảng được cập nhật mỗi tuần</h3>
+      <table>
+        <tr><td><input type="checkbox" id="item1" name="item1"><label for="item1">Tiếng Anh</label></td></tr>
+        <tr><td><input type="checkbox" id="item2" name="item2"><label for="item2">Python</label></td></tr>
+        <tr><td><input type="checkbox" id="item3" name="item3"><label for="item3">HTML</label></td></tr>
+        <tr><td><input type="checkbox" id="item4" name="item4"><label for="item4">JAVA</label></td></tr>
+        <tr><td><input type="checkbox" id="item5" name="item5"><label for="item5">C++</label></td></tr>
+        <tr><td><input type="checkbox" id="item6" name="item6"><label for="item6">Mục 1</label></td></tr>
+        <tr><td><input type="checkbox" id="item7" name="item7"><label for="item7">Mục 2</label></td></tr>
+        <tr><td><input type="checkbox" id="item8" name="item8"><label for="item8">Mục 3</label></td></tr>
+        <tr><td><input type="checkbox" id="item9" name="item9"><label for="item9">Mục 4</label></td></tr>
+        <tr><td><input type="checkbox" id="item10" name="item10"><label for="item10">Mục 5</label></td></tr>
+      </table>
+
+    <div class="save-button">
+      <button id="saveButton">Lưu</button>
+    </div>
+    <div class="completed-items">
+      <p id="completedItems">0 mục đã hoàn thành</p>
+    </div>
+
+<footer>
+        <h2>Về chúng tôi</h2>
+        <p>eLeorn là một nền tảng giáo dục trực tuyến được phát triển bởi đội ngũ chuyên gia giàu kinh nghiệm.</br>
+        Mục tiêu của chúng tôi là cung cấp các khóa học chất lượng cao, giúp học viên học tập hiệu quả và đạt được mục tiêu.</p>
+        <a href="#" class="btn">Tìm hiểu thêm</a>
+        <h2>Liên hệ</h2>
+        <p>Bạn có câu hỏi hoặc cần hỗ trợ?<br>
+        Vui lòng liên hệ với chúng tôi qua email hoặc điện thoại.</p>
+        <ul>
+          <li><a href="mailto:support@eleorn.com">support@eleorn.com</a></li>
+          <li><a href="tel:+84987654321">+84 987 654 321</a></li>
+        </ul>
+
+</footer>
+  </main>
+      <p>&copy; 2024 eLeorn. All rights reserved.</p>
+      <script>
+        document.getElementById("search-input").addEventListener("input", function() {
+          var searchText = this.value.toLowerCase();
+          var courseCards = document.getElementsByClassName("course-card");
+          var noResultsMessage = document.getElementById("no-results");
+          var foundResults = false; // Biến này để kiểm tra xem có kết quả tìm thấy hay không
+      
+          for (var i = 0; i < courseCards.length; i++) {
+            var courseTitle = courseCards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+            if (courseTitle.includes(searchText)) {
+              courseCards[i].style.display = "block";
+              foundResults = true; // Có kết quả được tìm thấy
+            } else {
+              courseCards[i].style.display = "none";
+            }
+          }
+      
+          if (foundResults) {
+            noResultsMessage.style.display = "none";
+          } else {
+            noResultsMessage.style.display = "block";
+          }
+        });
+      </script>
+</body>
+</html>
